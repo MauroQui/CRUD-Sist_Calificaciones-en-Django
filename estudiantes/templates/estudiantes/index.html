@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes</title>
+</head>
+<body>
+    <h1>Lista de Estudiantes</h1>
+    <a href="{% url 'add_estudiante' %}">Agregar Estudiante</a>
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li>
+            {{ estudiante.nombre }} - {{ estudiante.materia }} - {{ estudiante.nota }}
+            <a href="{% url 'edit_estudiante' estudiante.id %}">Editar</a>
+            <a href="{% url 'delete_estudiante' estudiante.id %}">Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
